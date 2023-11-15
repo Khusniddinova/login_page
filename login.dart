@@ -13,20 +13,27 @@ class _LoginScreenState extends State<LoginScreen> {
   IconData currentIcon = Icons.lock_outline;
   bool isLoggedIn = false;
 
-  void updateIcon() {
+  // void updateIcon() {
+  //   setState(() {
+  //     if (isLoggedIn) {
+  //       currentIcon = Icons.lock_outline;
+  //     } else {
+  //       currentIcon = Icons.login;
+  //     }
+  //     isLoggedIn = !isLoggedIn;
+  //   });
+  // }
+
+  void toggleImage() {
     setState(() {
+      showFirstImage = !showFirstImage;
+
       if (isLoggedIn) {
         currentIcon = Icons.lock_outline;
       } else {
         currentIcon = Icons.login;
       }
       isLoggedIn = !isLoggedIn;
-    });
-  }
-
-  void toggleImage() {
-    setState(() {
-      showFirstImage = !showFirstImage;
     });
   }
 
@@ -80,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {
                         // Call the function to toggle images
                         toggleImage();
-                        updateIcon();
+                        // updateIcon();
                       },
                       child: Text('click'),
                       style: ElevatedButton.styleFrom(
